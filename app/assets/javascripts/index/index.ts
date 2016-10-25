@@ -30,7 +30,7 @@ class IndexService {
   constructor(private $http: ng.IHttpService) { }
 
   checkForAdmin(idToken: string) {
-    return this.$http.post('/users/is_admin', {
+    return this.$http.post('/api/users/is_admin', {
       'idToken': idToken
     }).then((httpResp: any) => {
       return <boolean>httpResp.data.isAdmin;

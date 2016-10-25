@@ -3,5 +3,6 @@
 //= require angular-aria/angular-aria.min
 //= require angular-material/angular-material.min
 //= require angular-route/angular-route.min
-//= require app-config
+//= require app
 //= require index/index
+//= require vote/vote

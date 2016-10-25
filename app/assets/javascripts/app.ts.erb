@@ -1,0 +1,22 @@
+/// <reference path="typings/angularjs/angular.d.ts" />
+/// <reference path="typings/angularjs/angular-route.d.ts" />
+
+angular.module('notb', ['ngMaterial', 'ngRoute', 'notb.index', 'notb.vote'])
+  .config(function($httpProvider: ng.IHttpProvider,
+                   $routeProvider: ng.route.IRouteProvider,
+                   $locationProvider: ng.ILocationProvider) {
+    $httpProvider.defaults.headers.common['X-CSRF-Token'] = 
+      document.querySelector('meta[name=csrf-token]').getAttribute('content');
+    $locationProvider.html5Mode(true);
+    $routeProvider
+      .when('/', {
+        templateUrl: "<%= asset_path 'index/index.html' %>",
+        controller: 'IndexCtrl',
+      })
+      .when('/vote', {
+        templateUrl: "<%= asset_path 'vote/vote.html' %>",
+        controller: 'VoteCtrl',
+      })
+      .otherwise({redirectTo: '/'});
+  });
+
