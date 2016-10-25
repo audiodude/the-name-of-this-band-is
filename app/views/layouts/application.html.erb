@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/">
+    <title>TheNameOfThisBandIs</title>
+    <%= csrf_meta_tags %>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="514994321753-haa5mtf623hrkaiqaunsg9vh7mmaqchb.apps.googleusercontent.com">
+
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <script src="https://apis.google.com/js/client:plusone.js"></script>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
