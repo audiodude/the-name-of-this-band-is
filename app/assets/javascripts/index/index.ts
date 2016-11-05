@@ -3,6 +3,7 @@
 var gapi: any;
 
 class IndexCtrl {
+  private INHIBIT_SIGNIN = false;
   constructor(private $location: ng.ILocationService,
               private IndexService: IndexService) {
     gapi.signin2.render('g-signin', {
@@ -14,6 +15,9 @@ class IndexCtrl {
   }
 
   onSignIn(googleUser: any) {
+    if (this.INHIBIT_SIGNIN) {
+      return;
+    }
     var idToken = googleUser.getAuthResponse().id_token
     this.IndexService.checkForAdmin(idToken).then((isAdmin: boolean) => {
       if (isAdmin) {

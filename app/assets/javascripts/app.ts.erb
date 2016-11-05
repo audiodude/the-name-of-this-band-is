@@ -12,10 +12,12 @@ angular.module('notb', ['ngMaterial', 'ngRoute', 'notb.index', 'notb.vote'])
       .when('/', {
         templateUrl: "<%= asset_path 'index/index.html' %>",
         controller: 'IndexCtrl',
+        controllerAs: 'ctrl',
       })
       .when('/vote', {
         templateUrl: "<%= asset_path 'vote/vote.html' %>",
         controller: 'VoteCtrl',
+        controllerAs: 'ctrl',
       })
       .otherwise({redirectTo: '/'});
   });
