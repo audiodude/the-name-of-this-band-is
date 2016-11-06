@@ -6,3 +6,4 @@
 //= require app
 //= require index/index
 //= require vote/vote
+//= require admin/admin

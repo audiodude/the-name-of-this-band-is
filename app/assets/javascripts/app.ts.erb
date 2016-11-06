@@ -1,7 +1,8 @@
 /// <reference path="typings/angularjs/angular.d.ts" />
 /// <reference path="typings/angularjs/angular-route.d.ts" />
 
-angular.module('notb', ['ngMaterial', 'ngRoute', 'notb.index', 'notb.vote'])
+angular.module('notb', ['ngMaterial', 'ngRoute', 'notb.index',
+                        'notb.vote', 'notb.admin'])
   .config(function($httpProvider: ng.IHttpProvider,
                    $routeProvider: ng.route.IRouteProvider,
                    $locationProvider: ng.ILocationProvider) {
@@ -10,15 +11,20 @@ angular.module('notb', ['ngMaterial', 'ngRoute', 'notb.index', 'notb.vote'])
     $locationProvider.html5Mode(true);
     $routeProvider
       .when('/', {
-        templateUrl: "<%= asset_path 'index/index.html' %>",
+        templateUrl: '<%= asset_path 'index/index.html' %>',
         controller: 'IndexCtrl',
         controllerAs: 'ctrl',
       })
       .when('/vote', {
-        templateUrl: "<%= asset_path 'vote/vote.html' %>",
+        templateUrl: '<%= asset_path 'vote/vote.html' %>',
         controller: 'VoteCtrl',
         controllerAs: 'ctrl',
       })
+      .when('/admin', {
+        templateUrl: '<%= asset_path 'admin/admin.html' %>',
+        controller: 'AdminCtrl',
+        controllerAs: 'ctrl',
+      })      
       .otherwise({redirectTo: '/'});
   });
 
